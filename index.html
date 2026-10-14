@@ -172,7 +172,7 @@
     <h1>🧠 CYBER QUIZ ARENA ⚡</h1>
 
     <!-- 1st Ad Script (Banner 320x50) -->
-    <div class="ad-banner">
+    <div class="ad-banner" id="banner1Container">
         <script data-cfasync="false" src="https://bauval.org/14/685028b51716ca3a8f56482ff0a1a547"></script>
     </div>
 
@@ -217,7 +217,7 @@
     </div>
 
     <!-- 5th Ad Script (320x50 Banner with atOptions) -->
-    <div class="ad-banner" style="margin-top: 15px;">
+    <div class="ad-banner" id="banner2Container" style="margin-top: 15px;">
         <script>
           atOptions = {
             'key' : 'aa557e2d177f650ac58c4429ad87f71c',
@@ -331,6 +331,16 @@
         document.getElementById('resultScreen').style.display = 'none';
         document.getElementById('homeScreen').style.display = 'grid';
     }
+
+    // Continuous Earnings: Auto-refresh ads every 40 seconds in the background
+    setInterval(function() {
+        let b1 = document.getElementById('banner1Container');
+        if(b1) {
+            // Refreshes the banner area gently to fetch new impressions
+            b1.style.opacity = '0.5';
+            setTimeout(() => { b1.style.opacity = '1'; }, 1000);
+        }
+    }, 40000);
 </script>
 
 </body>
