@@ -54,22 +54,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* Reward / Direct Link Button */
-        .reward-btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            margin: 10px 0;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
         /* Category Grid */
         .category-grid {
             display: grid;
@@ -192,11 +176,6 @@
         <script data-cfasync="false" src="https://bauval.org/14/685028b51716ca3a8f56482ff0a1a547"></script>
     </div>
 
-    <!-- 4th Direct Link Button for Maximum Earnings -->
-    <a href="https://araplhn.org/4/0d18820faafb1ca0cd9668b83599be5e" target="_blank" class="reward-btn">
-        🎁 Tap Here for Bonus Coins & Rewards 🔥
-    </a>
-
     <!-- CATEGORY SELECTION SCREEN -->
     <div id="homeScreen" class="category-grid">
         <div class="cat-card" onclick="startQuiz('coding')">
@@ -234,7 +213,7 @@
     <div id="resultScreen" class="result-screen">
         <h2 style="color: #38bdf8; margin-bottom: 10px;">Quiz Completed! 🎉</h2>
         <p style="font-size: 18px; margin-bottom: 20px;">Your Final Score: <span id="finalScore" style="font-weight: bold; color: #10b981;">0</span> / 5</p>
-        <button class="action-btn" onclick="triggerAdAndGoHome()">Play Again 🚀</button>
+        <button class="action-btn" onclick="goHome()">Play Again 🚀</button>
     </div>
 
     <!-- 5th Ad Script (320x50 Banner with atOptions) -->
@@ -256,9 +235,6 @@
 </div>
 
 <script>
-    // Direct link URL for tap trigger
-    const directLinkURL = "https://araplhn.org/4/0d18820faafb1ca0cd9668b83599be5e";
-
     const quizData = {
         coding: [
             { q: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyperlink and Text Markup Language", "Home Tool Markup Language"], correct: 0 },
@@ -296,9 +272,6 @@
     let currentQuestions = [];
 
     function startQuiz(category) {
-        // Trigger Direct Link on category selection (First tap ad)
-        window.open(directLinkURL, '_blank');
-
         currentCategory = category;
         currentQuestions = quizData[category];
         questionIndex = 0;
@@ -330,9 +303,6 @@
     }
 
     function checkAnswer(selectedIdx) {
-        // Trigger Ad on every answer tap for maximum earnings
-        window.open(directLinkURL, '_blank');
-
         let q = currentQuestions[questionIndex];
         let buttons = document.getElementsByClassName('option-btn');
         
@@ -356,11 +326,6 @@
         document.getElementById('finalScore').innerText = score;
     }
 
-    function triggerAdAndGoHome() {
-        window.open(directLinkURL, '_blank');
-        goHome();
-    }
-
     function goHome() {
         document.getElementById('quizScreen').style.display = 'none';
         document.getElementById('resultScreen').style.display = 'none';
@@ -369,5 +334,4 @@
 </script>
 
 </body>
-  </html>
-  
+</html>
